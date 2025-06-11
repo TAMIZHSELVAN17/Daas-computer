@@ -101,14 +101,14 @@ const Accessories = () => {
                     (e.target.src =
                       "https://via.placeholder.com/100?text=Not+Found")
                   }
-                  className="w-full h-32 object-cover rounded-lg mb-3"
+                  className="w-full h-52 object-fill rounded-lg mb-3"
                 />
                 <h3 className="text-sm font-semibold text-gray-800 text-center">{item.name}</h3>
               </div>
             ) : (
               <div
                 key={index}
-                className="bg-white p-4 rounded-xl border-dashed border-2 border-gray-300 text-gray-400 flex items-center justify-center text-xs sm:text-sm h-40 text-center italic"
+                className="bg-white p-4 rounded-xl border-dashed border-2 border-gray-300 text-gray-400 flex items-center justify-center text-xs sm:text-sm h-52 text-center italic"
               >
                 Coming Soon
               </div>
