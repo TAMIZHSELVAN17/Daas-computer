@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.9",
     "browser-router": "^0.2.0",
+    "framer-motion": "^12.16.0",
     "lucide-react": "^0.474.0",
     "my-app": "file:",
     "qrcode.react": "^4.2.0",
