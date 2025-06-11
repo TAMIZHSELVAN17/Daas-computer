@@ -16,7 +16,7 @@ import computerImg from '../assets/PopularCategories/computer.avif';
 import keyboardMouseImg from '../assets/PopularCategories/keyboard.avif';
 
 import A from '../assets/our brand/acer.jpg';
-import D from '../assets/our brand/dell-logo.jpg';
+import D from '../assets/our brand/dell-logo.png';
 import h from '../assets/our brand/hp-logo.png';
 import l from '../assets/our brand/lenova.png';
 import Asus from '../assets/our brand/asus.jpg';
@@ -28,12 +28,7 @@ const fadeLeft = {
   viewport: { once: false, amount: 0.3 },
 };
 
-// const fadeRight = {
-//   initial: { opacity: 0, x: 60 },
-//   whileInView: { opacity: 1, x: 0 },
-//   transition: { duration: 1 },
-//   viewport: { once: false, amount: 0.3 },
-// };
+
 const fadeRight = {
   initial: { opacity: 0, x: 50 },
   animate: { opacity: 1, x: 0 },
@@ -135,11 +130,7 @@ const BranchSlider = () => {
     { id: 3, img: Asus, path: "https://www.asus.com/in/" },
     { id: 4, img: l, path: "https://www.lenovo.com/in/en/d/deals/" },
     { id: 5, img: h, path: "https://www.hp.com/in-en/shop/" },
-    { id: 6, img: D, path: "https://www.dell.com/en-in" },
-    { id: 7, img: A, path: "https://www.acer.com/in-en/" },
-    { id: 8, img: Asus, path: "https://www.asus.com/in/" },
-    { id: 9, img: l, path: "https://www.lenovo.com/in/en/d/deals/" },
-    { id: 10, img: h, path: "https://www.hp.com/in-en/shop/" },
+  
   ];
 
   const settings = {
@@ -167,7 +158,7 @@ const BranchSlider = () => {
       <p className="text-gray-600 text-center text-lg max-w-2xl mb-8 leading-relaxed">
         Explore the most trusted computer brands we proudly offer.
       </p>
-      <div className="w-full max-w-7xl px-4">
+      <div className="w-full max-w-7xl px-4 ">
         <Slider {...settings}>
           {branches.map((branch, index) => (
             <motion.div
@@ -176,15 +167,15 @@ const BranchSlider = () => {
               initial="initial"
               animate="animate"
               transition={{ duration: 0.8, delay: index * 0.05 }}
-              className="px-3"
+              className="px-3 rounded-xl"
             >
               <a href={branch.path} target="_blank" rel="noopener noreferrer">
                 <div className="bg-white rounded-xl shadow-md transition-transform duration-300 hover:shadow-xl hover:scale-105 flex items-center justify-center h-44">
                   <img
                     src={branch.img}
                     alt="Brand Logo"
-                    className="max-h-32 w-auto object-contain p-4"
-                    loading="lazy"
+                    className="max-h-32 w-auto object-fill p-4"
+                    
                   />
                 </div>
               </a>
