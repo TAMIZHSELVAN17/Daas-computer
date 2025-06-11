@@ -28,11 +28,15 @@ const fadeLeft = {
   viewport: { once: false, amount: 0.3 },
 };
 
+// const fadeRight = {
+//   initial: { opacity: 0, x: 60 },
+//   whileInView: { opacity: 1, x: 0 },
+//   transition: { duration: 1 },
+//   viewport: { once: false, amount: 0.3 },
+// };
 const fadeRight = {
-  initial: { opacity: 0, x: 60 },
-  whileInView: { opacity: 1, x: 0 },
-  transition: { duration: 1 },
-  viewport: { once: false, amount: 0.3 },
+  initial: { opacity: 0, x: 50 },
+  animate: { opacity: 1, x: 0 },
 };
 
 const BannerSlider = () => {
@@ -82,13 +86,16 @@ const BannerSlider = () => {
   );
 };
 
-const categories = [
+
+
+const PopularCategories = () => {
+
+  const categories = [
   { title: 'Laptop', image: laptopImg },
-  { title: 'Computer', image: computerImg },
+  { title: 'Desktop', image: computerImg },
   { title: 'Accessories', image: keyboardMouseImg },
 ];
 
-const PopularCategories = () => {
   return (
     <section className="py-10 w-full" aria-label="Popular Categories Section">
       <div className="w-full max-w-7xl mx-auto px-4">
@@ -123,11 +130,16 @@ const PopularCategories = () => {
 
 const BranchSlider = () => {
   const branches = [
-    { id: 1, img: D, path: 'https://www.dell.com/en-in' },
-    { id: 2, img: A, path: 'https://www.acer.com/in-en/' },
-    { id: 3, img: Asus, path: 'https://www.asus.com/in/' },
-    { id: 4, img: l, path: 'https://www.lenovo.com/in/en/d/deals/' },
-    { id: 5, img: h, path: 'https://www.hp.com/in-en/shop/' },
+    { id: 1, img: D, path: "https://www.dell.com/en-in" },
+    { id: 2, img: A, path: "https://www.acer.com/in-en/" },
+    { id: 3, img: Asus, path: "https://www.asus.com/in/" },
+    { id: 4, img: l, path: "https://www.lenovo.com/in/en/d/deals/" },
+    { id: 5, img: h, path: "https://www.hp.com/in-en/shop/" },
+    { id: 6, img: D, path: "https://www.dell.com/en-in" },
+    { id: 7, img: A, path: "https://www.acer.com/in-en/" },
+    { id: 8, img: Asus, path: "https://www.asus.com/in/" },
+    { id: 9, img: l, path: "https://www.lenovo.com/in/en/d/deals/" },
+    { id: 10, img: h, path: "https://www.hp.com/in-en/shop/" },
   ];
 
   const settings = {
@@ -135,13 +147,14 @@ const BranchSlider = () => {
     infinite: true,
     speed: 1000,
     slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToScroll: 1, // Smooth looping
     autoplay: true,
     autoplaySpeed: 2500,
     arrows: false,
     responsive: [
-      { breakpoint: 1280, settings: { slidesToShow: 3 } },
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 1280, settings: { slidesToShow: 4 } },
+      { breakpoint: 1024, settings: { slidesToShow: 3 } },
+      { breakpoint: 768, settings: { slidesToShow: 2 } },
       { breakpoint: 640, settings: { slidesToShow: 1 } },
     ],
   };
@@ -159,16 +172,18 @@ const BranchSlider = () => {
           {branches.map((branch, index) => (
             <motion.div
               key={branch.id}
-              {...fadeRight}
-              transition={{ duration: 1, delay: index * 0.1 }}
+              variants={fadeRight}
+              initial="initial"
+              animate="animate"
+              transition={{ duration: 0.8, delay: index * 0.05 }}
               className="px-3"
             >
               <a href={branch.path} target="_blank" rel="noopener noreferrer">
-                <div className="bg-white rounded-xl shadow-md transition-transform duration-300 hover:shadow-xl hover:scale-105">
+                <div className="bg-white rounded-xl shadow-md transition-transform duration-300 hover:shadow-xl hover:scale-105 flex items-center justify-center h-44">
                   <img
                     src={branch.img}
                     alt="Brand Logo"
-                    className="h-40 w-full object-contain p-4"
+                    className="max-h-32 w-auto object-contain p-4"
                     loading="lazy"
                   />
                 </div>
@@ -180,6 +195,9 @@ const BranchSlider = () => {
     </div>
   );
 };
+
+
+
 
 const Home = () => {
   return (

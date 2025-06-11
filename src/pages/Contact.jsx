@@ -23,7 +23,7 @@ const ContactDetails = () => (
     variants={fadeInUp}
   >
     <h2 className="text-3xl font-bold text-gray-800 mb-2">Reach Out to Dass Computer</h2>
-    <p className="text-gray-500 mb-10 text-sm">
+    <p className="text-gray-500 mb-10 text-sm   ">
       We're here to help. Call or message us for any service or product inquiries.
     </p>
 

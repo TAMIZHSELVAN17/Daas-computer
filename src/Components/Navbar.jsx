@@ -86,8 +86,8 @@ const Navbar = () => {
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`block font-medium px-2 py-1 rounded-md focus:outline-none focus:text-yellow-300 hover:text-yellow-300 transition-colors ${
-                  isActive(item.path) ? 'text-yellow-300' : 'text-white'
+                className={`block font-medium px-2 py-1 rounded-md focus:outline-none focus:text-orange-500 hover:text-orange-500 transition-colors ${
+                  isActive(item.path) ? 'text-orange-500' : 'text-white'
                 }`}
               >
                 {item.name}

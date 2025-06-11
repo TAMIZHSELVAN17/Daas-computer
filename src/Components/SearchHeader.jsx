@@ -1,56 +1,61 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Search } from 'lucide-react';
 import { motion } from 'framer-motion';
-import logo from '../assets/Daas Computers LOGO.png'; // Update path if needed
+import logo from '../assets/Daas Computers LOGO.png'; // Adjust if needed
+import { FaFacebook } from "react-icons/fa";
+import { FaSquareInstagram } from "react-icons/fa6";
 
-const brandText = "Dass Computers".split("");
+const brandText = "Daas Computers".split("");
 
 const SearchHeader = () => {
   return (
-    <header className="bg-blue-100 shadow-sm pt-16">
+    <header className="bg-blue-100 shadow-sm pt-10 md:pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
 
           {/* Logo & Brand Text Animation */}
-          <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center gap-4"
-          >
-            <img
-              src={logo}
-              alt="Dass Computers Logo"
-              className="w-17 h-16 object-fill pt-2"
-            />
-
-            <motion.h1
-              className="text-2xl sm:text-3xl font-bold text-blue-900 tracking-wide flex"
-              initial="hidden"
-              animate="visible"
-              variants={{
-                visible: {
-                  transition: {
-                    staggerChildren: 0.05,
-                    delayChildren: 0.3,
-                  },
-                },
-              }}
+          <Link to="/" className="flex items-center space-x-2">
+            <motion.div
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex items-center gap-4"
             >
-              {brandText.map((char, index) => (
-                <motion.span
-                  key={index}
-                  variants={{
-                    hidden: { opacity: 0, x: 20 },
-                    visible: { opacity: 1, x: 0 },
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              ))}
-            </motion.h1>
-          </motion.div>
+              <img
+                src={logo}
+                alt="Daas Computers company logo"
+                className="w-16 h-16 object-fill pt-2"
+              />
+
+              <motion.h1
+                className="text-2xl sm:text-3xl font-bold text-blue-900 tracking-wide flex"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  visible: {
+                    transition: {
+                      staggerChildren: 0.05,
+                      delayChildren: 0.3,
+                    },
+                  },
+                }}
+              >
+                {brandText.map((char, index) => (
+                  <motion.span
+                    key={index}
+                    variants={{
+                      hidden: { opacity: 0, x: 20 },
+                      visible: { opacity: 1, x: 0 },
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+              </motion.h1>
+            </motion.div>
+          </Link>
 
           {/* Search Bar */}
           <motion.div
@@ -69,14 +74,53 @@ const SearchHeader = () => {
               </select>
               <input
                 type="text"
+                name="search"
                 placeholder="Search products, accessories..."
                 className="flex-grow px-4 py-2 text-sm text-gray-800 focus:outline-none placeholder-gray-500"
               />
-              <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 flex items-center justify-center transition-colors">
+              <button
+                className="bg-orange-500 hover:bg-orange-600 text-white px-4 flex items-center justify-center transition-colors"
+                aria-label="Search"
+              >
                 <Search size={20} />
               </button>
             </div>
           </motion.div>
+
+          {/* Social Icons */}
+         <motion.div
+  initial={{ opacity: 0, x: 100 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.5, delay: 0.6 }}
+  className="flex space-x-4 mt-4 md:mt-0 md:ml-4 justify-center md:justify-start animate-bounce"
+>
+  {/* Facebook */}
+  <a
+    href="https://www.facebook.com/share/1YjDfMJq8b/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group rounded-full bg-white border border-gray-300 shadow-md hover:border-blue-500 transition duration-300 w-12 h-12 flex items-center justify-center hover:scale-105"
+  >
+    <FaFacebook
+      size={35}
+      className="text-blue-600 group-hover:text-blue-700 transition duration-300 "
+    />
+  </a>
+
+  {/* Instagram */}
+  <a
+    href="https://www.instagram.com/daascomputer?igsh=dGd6NDlhMGlpM2Fm"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group rounded-xl bg-white border border-gray-300 shadow-md hover:border-pink-500 transition duration-300 w-12 h-12 flex items-center justify-center hover:scale-105"
+  >
+    <FaSquareInstagram
+      size={35}
+      className="text-pink-600 group-hover:text-pink-700 transition duration-300"
+    />
+  </a>
+</motion.div>
+
 
         </div>
       </div>

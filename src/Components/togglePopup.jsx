@@ -9,30 +9,31 @@ const ChatPopup = () => {
   const togglePopup = () => setIsOpen(!isOpen);
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 font-sans">
+    <div className="fixed bottom-4 right-4 z-50 font-sans ">
       {/* Floating Button */}
       {!isOpen && (
         <button
           onClick={togglePopup}
-          className="bg-green-600 text-white rounded-full p-4 shadow-lg hover:bg-green-700 transition duration-300"
+         
+          className="bg-green-600 text-white rounded-full p-3 shadow-lg hover:bg-green-700 transition duration-300  animate-bounce"
         >
-          <IoLogoWhatsapp className="w-6 h-6" />
+          <IoLogoWhatsapp className="w-12 h-12 " />
         </button>
       )}
 
       {/* Chat Popup */}
       {isOpen && (
-        <div className="w-80 rounded-lg shadow-2xl border border-gray-200 bg-white overflow-hidden animate-fade-in-up">
+        <div className="w-80 rounded-lg shadow-2xl border border-gray-200 bg-white overflow-hidden animate-fade-in-up ">
           {/* Header */}
           <div className="bg-green-600 text-white p-4 flex justify-between items-center">
             <div className="flex items-center gap-3">
               <img
                 src={logo}
                 alt="Dass Computers Logo"
-                className="w-9 h-9 rounded-full bg-white object-cover"
+                className="w-9 h-8 rounded-full bg-white object-fill p-1"
               />
               <div>
-                <h3 className="text-sm font-semibold leading-tight">Dass Computer</h3>
+                <h3 className="text-sm font-semibold leading-tight">Daas Computers</h3>
                 <p className="text-xs opacity-90">Typically replies within minutes</p>
               </div>
             </div>
@@ -63,7 +64,7 @@ const ChatPopup = () => {
             }}
           >
             <div className="bg-white bg-opacity-90 backdrop-blur-sm p-4 rounded-md shadow-sm max-w-[85%]">
-              <p className="text-xs font-semibold text-gray-800 mb-1">Dass Computer</p>
+            
               <p className="text-sm text-gray-700">Hi 👋,<br /> how can I help you today?</p>
               <p className="text-[10px] text-right text-gray-400 mt-2">Now</p>
             </div>

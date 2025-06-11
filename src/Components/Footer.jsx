@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+import { Facebook, Instagram } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ChatPopup from './togglePopup';
@@ -20,16 +20,15 @@ const Footer = () => {
           
           {/* Company Info */}
           <motion.div {...fadeUp}>
-            <h3 className="text-xl font-bold mb-4">Dass Computers</h3>
+            <h3 className="text-xl font-bold mb-4">Daas Computers</h3>
             <p className="text-sm text-white/90 leading-relaxed mb-4">
-              Dass Computers is a trusted provider of reliable laptop and desktop solutions. Based in Katpadi, near Aazhlaiyam College, we’ve proudly served the tech needs of our community for over 15 years.
+              Daas Computers is a trusted provider of reliable laptop and desktop solutions. Based in Katpadi, near Aazhlaiyam College, we’ve proudly served the tech needs of our community for over 15 years.
             </p>
             {/* Social Icons */}
             <div className="flex space-x-4 mt-3">
               <a href="https://www.facebook.com/share/1YjDfMJq8b/" target='_blank' className="hover:text-blue-400 transition"><Facebook size={20} /></a>
               <a href="https://www.instagram.com/daascomputer?igsh=dGd6NDlhMGlpM2Fm" className="hover:text-pink-400 transition"><Instagram size={20} /></a>
-              <a href="#" className="hover:text-sky-400 transition"><Twitter size={20} /></a>
-              <a href="#" className="hover:text-red-500 transition"><Youtube size={20} /></a>
+              
             </div>
           </motion.div>
 
@@ -64,7 +63,7 @@ const Footer = () => {
           transition={{ duration: 0.6, delay: 0.6 }}
           viewport={{ once: true }}
         >
-          © {new Date().getFullYear()} Dass Computers. All rights reserved.
+          © {new Date().getFullYear()} Daas Computers. All rights reserved.
         </motion.div>
       </div>
 
