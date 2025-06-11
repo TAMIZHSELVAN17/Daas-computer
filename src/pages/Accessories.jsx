@@ -31,7 +31,7 @@ const categoryIcons = {
 };
 
 const MAX_ITEMS = 30;
-const INITIAL_VISIBLE = 20;
+const INITIAL_VISIBLE = 16;
 
 const Accessories = () => {
   const categories = Object.keys(accessoryData);
