@@ -167,7 +167,7 @@ const BranchSlider = () => {
               initial="initial"
               animate="animate"
               transition={{ duration: 0.8, delay: index * 0.05 }}
-              className="px-3 rounded-xl"
+              className="px-3 "
             >
               <a href={branch.path} target="_blank" rel="noopener noreferrer">
                 <div className="bg-white rounded-xl shadow-md transition-transform duration-300 hover:shadow-xl hover:scale-105 flex items-center justify-center h-44">

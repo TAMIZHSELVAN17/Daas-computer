@@ -37,7 +37,7 @@ const ContactDetails = () => (
         {
           icon: <PhoneCall className="text-blue-600 w-8 h-8" />,
           title: 'Call Us',
-          desc: '+91 98653 98653',
+          desc: '+91 987 654 3210',
         },
         {
           icon: <Mail className="text-blue-600 w-8 h-8" />,
