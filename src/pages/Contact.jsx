@@ -8,7 +8,7 @@ const fadeInUp = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5, // updated duration
+      duration: 0.5,
       delay: i * 0.2,
     },
   }),
@@ -16,14 +16,14 @@ const fadeInUp = {
 
 const ContactDetails = () => (
   <motion.div
-    className="bg-blue-100 py-12 px-6 text-center rounded-lg shadow-md"
+    className="bg-gray-100 py-12 px-6 text-center rounded-lg shadow-md"
     initial="hidden"
     whileInView="visible"
     viewport={{ once: false, amount: 0.3 }}
     variants={fadeInUp}
   >
     <h2 className="text-3xl font-bold text-gray-800 mb-2">Reach Out to Dass Computer</h2>
-    <p className="text-gray-500 mb-10 text-sm   ">
+    <p className="text-gray-500 mb-10 text-sm">
       We're here to help. Call or message us for any service or product inquiries.
     </p>
 
@@ -66,7 +66,7 @@ const ContactDetails = () => (
 );
 
 const Contact = () => (
-  <div className="bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+  <div className="bg-blue-100 py-12 px-4 sm:px-6 lg:px-8">
     <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
       <ContactDetails />
 
@@ -82,46 +82,47 @@ const Contact = () => (
         <p className="text-gray-600 mb-6 text-sm">
           Have a question or need help? Fill out the form and we’ll get back to you as soon as possible.
         </p>
-        <form className="space-y-5">
+        <form className="space-y-6">
           {[
-            {
-              label: 'Your Name *',
-              type: 'text',
-              placeholder: 'Full Name',
-              required: true,
-            },
-            {
-              label: 'Email Address *',
-              type: 'email',
-              placeholder: 'you@example.com',
-              required: true,
-            },
-            {
-              label: 'Phone Number',
-              type: 'tel',
-              placeholder: '+91-9876543210',
-              required: false,
-            },
+            { label: 'Full Name *', type: 'text', id: 'name', required: true },
+            { label: 'Email Address *', type: 'email', id: 'email', required: true },
+            { label: 'Phone Number', type: 'tel', id: 'phone', required: false },
           ].map((field, i) => (
-            <div key={i}>
-              <label className="block text-sm font-medium text-gray-700">{field.label}</label>
+            <div className="relative z-0 w-full group" key={i}>
               <input
                 type={field.type}
+                id={field.id}
+                name={field.id}
+                placeholder=" "
                 required={field.required}
-                placeholder={field.placeholder}
-                className="mt-1 block w-full border border-gray-300 rounded px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               />
+              <label
+                htmlFor={field.id}
+                className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2.5 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >
+                {field.label}
+              </label>
             </div>
           ))}
-          <div>
-            <label className="block text-sm font-medium text-gray-700">Message *</label>
+
+          <div className="relative z-0 w-full group">
             <textarea
-              required
-              placeholder="Type your message here..."
+              id="message"
+              name="message"
               rows={4}
-              className="mt-1 block w-full border border-gray-300 rounded px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              required
+              placeholder=" "
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer resize-none"
             ></textarea>
+            <label
+              htmlFor="message"
+              className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2.5 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              Message *
+            </label>
           </div>
+
           <motion.button
             type="submit"
             whileHover={{ scale: 1.05 }}
