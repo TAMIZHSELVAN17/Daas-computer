@@ -21,14 +21,6 @@ import h from '../assets/our brand/hp-logo.png';
 import l from '../assets/our brand/lenova.png';
 import Asus from '../assets/our brand/asus.jpg';
 
-const fadeLeft = {
-  initial: { opacity: 0, x: -60 },
-  whileInView: { opacity: 1, x: 0 },
-  transition: { duration: 1 },
-  viewport: { once: false, amount: 0.3 },
-};
-
-
 const fadeRight = {
   initial: { opacity: 0, x: 50 },
   animate: { opacity: 1, x: 0 },
@@ -60,19 +52,19 @@ const BannerSlider = () => {
   };
 
   return (
-    <div className="w-full h-[500px] " aria-label="Brand Banners Section">
+    <div className="w-full h-[600px]" aria-label="Brand Banners Section">
       <Slider {...settings} className="relative overflow-hidden">
-        {banners.map((banner, index) => (
+        {banners.map((banner) => (
           <motion.div
             key={banner.id}
             {...fadeRight}
-            className="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px]"
+            className="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[550px]"
           >
             <img
               src={banner.img}
               alt={banner.name}
               className="w-full h-full object-fill"
-              loading="lazy"
+              
             />
           </motion.div>
         ))}
@@ -81,56 +73,54 @@ const BannerSlider = () => {
   );
 };
 
-
-
 const PopularCategories = () => {
-
   const categories = [
-  { title: 'Laptop', image: laptopImg },
-  { title: 'Desktop', image: computerImg },
-  { title: 'Accessories', image: keyboardMouseImg },
-];
+    { title: 'Laptop', image: laptopImg },
+    { title: 'Desktop', image: computerImg },
+    { title: 'Accessories', image: keyboardMouseImg },
+  ];
 
   return (
-    <section className="py-10 w-full" aria-label="Popular Categories Section">
+    <div className=" w-full flex flex-col items-center" aria-label="Popular Categories Section">
       <div className="w-full max-w-7xl mx-auto px-4">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-center bg-gradient-to-r from-[#f67216] to-indigo-600 text-transparent bg-clip-text pb-4">
+       <h2 className="text-4xl sm:text-5xl font-extrabold text-center bg-gradient-to-r from-[#f67216] to-indigo-600 text-transparent bg-clip-text mb-8 p-2">
           Popular Categories
         </h2>
-
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+           
           {categories.map((category, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-lg transition"
+              className="bg-white p-6 rounded-2xl text-center shadow-md cursor-pointer"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3, delay: index * 0.2 }}
               viewport={{ once: true, amount: 0.3 }}
             >
               <img
                 src={category.image}
                 alt={`${category.title} category image`}
-                className="w-24 h-24 mx-auto mb-4 object-fill"
-                loading="lazy"
+                className="w-32 h-323 mx-auto mb-4 object-fill"
+              
               />
               <h3 className="text-xl font-semibold text-gray-800">{category.title}</h3>
             </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
 const BranchSlider = () => {
   const branches = [
-    { id: 1, img: D, path: "https://www.dell.com/en-in" },
-    { id: 2, img: A, path: "https://www.acer.com/in-en/" },
-    { id: 3, img: Asus, path: "https://www.asus.com/in/" },
-    { id: 4, img: l, path: "https://www.lenovo.com/in/en/d/deals/" },
-    { id: 5, img: h, path: "https://www.hp.com/in-en/shop/" },
-  
+    { id: 1, img: D, path: 'https://www.dell.com/en-in' },
+    { id: 2, img: A, path: 'https://www.acer.com/in-en/' },
+    { id: 3, img: Asus, path: 'https://www.asus.com/in/' },
+    { id: 4, img: l, path: 'https://www.lenovo.com/in/en/d/deals/' },
+    { id: 5, img: h, path: 'https://www.hp.com/in-en/shop/' },
   ];
 
   const settings = {
@@ -138,7 +128,7 @@ const BranchSlider = () => {
     infinite: true,
     speed: 1000,
     slidesToShow: 4,
-    slidesToScroll: 1, // Smooth looping
+    slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2500,
     arrows: false,
@@ -158,7 +148,7 @@ const BranchSlider = () => {
       <p className="text-gray-600 text-center text-lg max-w-2xl mb-8 leading-relaxed">
         Explore the most trusted computer brands we proudly offer.
       </p>
-      <div className="w-full max-w-7xl px-4 ">
+      <div className="w-full max-w-7xl px-4">
         <Slider {...settings}>
           {branches.map((branch, index) => (
             <motion.div
@@ -167,15 +157,16 @@ const BranchSlider = () => {
               initial="initial"
               animate="animate"
               transition={{ duration: 0.8, delay: index * 0.05 }}
-              className="px-3 "
+              className="p-3"
+              whileHover={{ scale: 1.05 }}
             >
               <a href={branch.path} target="_blank" rel="noopener noreferrer">
-                <div className="bg-white rounded-xl shadow-md transition-transform duration-300 hover:shadow-xl hover:scale-105 flex items-center justify-center h-44">
+                <div className="bg-white flex items-center justify-center h-44 rounded-xl shadow-md cursor-pointer">
                   <img
                     src={branch.img}
                     alt="Brand Logo"
                     className="max-h-32 w-auto object-fill p-4"
-                    
+                    loading="lazy"
                   />
                 </div>
               </a>
@@ -186,9 +177,6 @@ const BranchSlider = () => {
     </div>
   );
 };
-
-
-
 
 const Home = () => {
   return (
