@@ -13,26 +13,44 @@ const fadeUp = {
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-800 text-white pt-10 pb-6">
+    <footer className="bg-slate-800 text-white pt-12 pb-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Footer Content */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          
+
+        {/* Top Content */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+
           {/* Company Info */}
           <motion.div {...fadeUp}>
             <h3 className="text-xl font-bold mb-4">Daas Computers</h3>
             <p className="text-sm text-white/90 leading-relaxed mb-4">
-              Daas Computers is a trusted provider of reliable laptop and desktop solutions. Based in Katpadi, near Aazhlaiyam College, we’ve proudly served the tech needs of our community for over 15 years.
+              Daas Computers is a trusted provider of reliable laptop and desktop solutions.
+              Based in Katpadi, near Aazhlaiyam College, we’ve proudly served the tech needs
+              of our community for over 15 years.
             </p>
-            {/* Social Icons */}
+
             <div className="flex space-x-4 mt-3">
-              <a href="https://www.facebook.com/share/1YjDfMJq8b/" target='_blank' className="hover:text-blue-400 transition"><Facebook size={20} /></a>
-              <a href="https://www.instagram.com/daascomputer?igsh=dGd6NDlhMGlpM2Fm" className="hover:text-pink-400 transition"><Instagram size={20} /></a>
-              
+              <a
+                href="https://www.facebook.com/share/1YjDfMJq8b/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-blue-400 transition-colors duration-300"
+                aria-label="Facebook"
+              >
+                <Facebook size={20} />
+              </a>
+              <a
+                href="https://www.instagram.com/daascomputer?igsh=dGd6NDlhMGlpM2Fm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-pink-400 transition-colors duration-300"
+                aria-label="Instagram"
+              >
+                <Instagram size={20} />
+              </a>
             </div>
           </motion.div>
 
-          {/* Info Links (Updated Section) */}
+          {/* Information Links */}
           <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.2 }}>
             <h3 className="text-xl font-bold mb-4">Information</h3>
             <ul className="space-y-2 text-sm text-white/90">
@@ -44,13 +62,13 @@ const Footer = () => {
             </ul>
           </motion.div>
 
-          {/* Product Links */}
+          {/* Products */}
           <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.4 }}>
             <h3 className="text-xl font-bold mb-4">Products</h3>
             <ul className="space-y-2 text-sm text-white/90">
-              <li><Link to="/accessories">Laptops</Link></li>
-              <li><Link to="/accessories" >Desktops</Link></li>
-              <li><Link to="/accessories" >Accessories</Link></li>
+              <li><Link to="/accessories" className="hover:underline">Laptops</Link></li>
+              <li><Link to="/accessories" className="hover:underline">Desktops</Link></li>
+              <li><Link to="/accessories" className="hover:underline">Accessories</Link></li>
             </ul>
           </motion.div>
         </div>
@@ -67,7 +85,7 @@ const Footer = () => {
         </motion.div>
       </div>
 
-      {/* Chat Popup */}
+      {/* Chat Popup Component */}
       <ChatPopup />
     </footer>
   );
