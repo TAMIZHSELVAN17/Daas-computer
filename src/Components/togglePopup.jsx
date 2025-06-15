@@ -1,35 +1,34 @@
 import React, { useState } from "react";
 import { IoLogoWhatsapp } from "react-icons/io";
-import logo from "../assets/Daas Computers LOGO.png"; // Your logo
-import whatsapp from "../assets/whatsapp bg.jpg"; // Your background image
+import logo from "../assets/Daas Computers LOGO.png";
+import whatsapp from "../assets/whatsapp bg.jpg";
 
 const ChatPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const togglePopup = () => setIsOpen(!isOpen);
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 font-sans ">
-      {/* Floating Button */}
+    <div className="fixed bottom-4 right-4 z-50 font-sans">
+      {/* Floating WhatsApp Button */}
       {!isOpen && (
         <button
           onClick={togglePopup}
-         
-          className="bg-green-600 text-white rounded-full p-3 shadow-lg hover:bg-green-700 transition duration-300  animate-bounce"
+          aria-label="Open WhatsApp Chat"
+          className="bg-green-600 text-white rounded-full p-3 shadow-lg hover:bg-green-700 transition duration-300 animate-bounce"
         >
-          <IoLogoWhatsapp className="w-12 h-12 " />
+          <IoLogoWhatsapp className="w-12 h-12" />
         </button>
       )}
 
-      {/* Chat Popup */}
+      {/* Chat Popup Window */}
       {isOpen && (
-        <div className="w-80 rounded-lg shadow-2xl border border-gray-200 bg-white overflow-hidden animate-fade-in-up ">
+        <div className="w-80 rounded-lg shadow-2xl border border-gray-200 bg-white overflow-hidden animate-fade-in-up">
           {/* Header */}
           <div className="bg-green-600 text-white p-4 flex justify-between items-center">
             <div className="flex items-center gap-3">
               <img
                 src={logo}
-                alt="Dass Computers Logo"
+                alt="Daas Computers Logo"
                 className="w-9 h-8 rounded-full bg-white object-fill p-1"
               />
               <div>
@@ -37,7 +36,11 @@ const ChatPopup = () => {
                 <p className="text-xs opacity-90">Typically replies within minutes</p>
               </div>
             </div>
-            <button onClick={togglePopup} className="text-white hover:text-gray-300">
+            <button
+              onClick={togglePopup}
+              aria-label="Close Chat"
+              className="text-white hover:text-gray-300"
+            >
               <svg
                 className="w-5 h-5"
                 fill="none"
@@ -54,7 +57,7 @@ const ChatPopup = () => {
             </button>
           </div>
 
-          {/* Message Preview with Background */}
+          {/* Message Preview */}
           <div
             className="px-4 py-6 bg-no-repeat bg-cover"
             style={{
@@ -64,13 +67,14 @@ const ChatPopup = () => {
             }}
           >
             <div className="bg-white bg-opacity-90 backdrop-blur-sm p-4 rounded-md shadow-sm max-w-[85%]">
-            
-              <p className="text-sm text-gray-700">Hi 👋,<br /> how can I help you today?</p>
+              <p className="text-sm text-gray-700">
+                Hi 👋,<br /> how can I help you today?
+              </p>
               <p className="text-[10px] text-right text-gray-400 mt-2">Now</p>
             </div>
           </div>
 
-          {/* CTA Button */}
+          {/* Call To Action */}
           <div className="px-4 pb-4 pt-2">
             <a
               href="https://wa.me/919999999999"
