@@ -2,19 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Search } from 'lucide-react';
 import { motion } from 'framer-motion';
-import logo from '../assets/Daas Computers LOGO.png'; // Adjust if needed
-import { FaFacebook } from "react-icons/fa";
-import { FaSquareInstagram } from "react-icons/fa6";
+import logo from '../assets/Daas Computers LOGO.png';
+import { FaFacebook } from 'react-icons/fa';
+import { FaSquareInstagram } from 'react-icons/fa6';
 
-const brandText = "Daas Computers".split("");
+const brandText = 'Daas Computers'.split('');
 
 const SearchHeader = () => {
   return (
-    <header className="bg-blue-100 shadow-sm pt-10 md:pt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <header className="bg-white shadow-md md:shadow-[0_4px_8px_rgba(0,0,0,0.2)] pt-20 sm:pt-10 md:pt-20 pb-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-
-          {/* Logo & Brand Text Animation */}
+          
+          {/* Logo + Brand */}
           <Link to="/" className="flex items-center space-x-2">
             <motion.div
               initial={{ opacity: 0, x: 100 }}
@@ -24,12 +24,11 @@ const SearchHeader = () => {
             >
               <img
                 src={logo}
-                alt="Daas Computers company logo"
-                className="w-16 h-16 object-fill pt-2"
+                alt="Daas Computers logo"
+                className="w-20 h-16 sm:w-24 sm:h-20 object-fill"
               />
-
               <motion.h1
-                className="text-2xl sm:text-3xl font-bold text-blue-900 tracking-wide flex"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-800 tracking-wide flex"
                 initial="hidden"
                 animate="visible"
                 variants={{
@@ -50,7 +49,7 @@ const SearchHeader = () => {
                     }}
                     transition={{ duration: 0.3 }}
                   >
-                    {char === " " ? "\u00A0" : char}
+                    {char === ' ' ? '\u00A0' : char}
                   </motion.span>
                 ))}
               </motion.h1>
@@ -65,7 +64,7 @@ const SearchHeader = () => {
             className="w-full md:w-[500px]"
           >
             <div className="flex rounded-full overflow-hidden border border-gray-300 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 transition-all duration-200">
-              <select className="bg-gray-100 px-4 py-2 text-sm text-gray-700 border-r border-gray-300 focus:outline-none w-40">
+              <select className="bg-gray-100 px-4 py-2 text-sm text-gray-700 border-r border-gray-300 focus:outline-none w-36 sm:w-40">
                 <option>All Categories</option>
                 <option>Accessories</option>
                 <option>Laptops</option>
@@ -74,7 +73,6 @@ const SearchHeader = () => {
               </select>
               <input
                 type="text"
-                name="search"
                 placeholder="Search products, accessories..."
                 className="flex-grow px-4 py-2 text-sm text-gray-800 focus:outline-none placeholder-gray-500"
               />
@@ -88,40 +86,35 @@ const SearchHeader = () => {
           </motion.div>
 
           {/* Social Icons */}
-         <motion.div
-  initial={{ opacity: 0, x: 100 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.5, delay: 0.6 }}
-  className="flex space-x-4 mt-4 md:mt-0 md:ml-4 justify-center md:justify-start animate-bounce"
->
-  {/* Facebook */}
-  <a
-    href="https://www.facebook.com/share/1YjDfMJq8b/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="group rounded-full bg-white border border-gray-300 shadow-md hover:border-blue-500 transition duration-300 w-12 h-12 flex items-center justify-center hover:scale-105"
-  >
-    <FaFacebook
-      size={35}
-      className="text-blue-600 group-hover:text-blue-700 transition duration-300 "
-    />
-  </a>
-
-  {/* Instagram */}
-  <a
-    href="https://www.instagram.com/daascomputer?igsh=dGd6NDlhMGlpM2Fm"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="group rounded-xl bg-white border border-gray-300 shadow-md hover:border-pink-500 transition duration-300 w-12 h-12 flex items-center justify-center hover:scale-105"
-  >
-    <FaSquareInstagram
-      size={35}
-      className="text-pink-600 group-hover:text-pink-700 transition duration-300"
-    />
-  </a>
-</motion.div>
-
-
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="flex space-x-4 mt-4 md:mt-0 justify-center md:justify-start"
+          >
+            <a
+              href="https://www.facebook.com/share/1YjDfMJq8b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-full bg-white border border-gray-300 shadow-md hover:border-blue-500 transition duration-300 w-12 h-12 flex items-center justify-center hover:scale-105"
+            >
+              <FaFacebook
+                size={28}
+                className="text-blue-600 group-hover:text-blue-700 transition duration-300"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/daascomputer?igsh=dGd6NDlhMGlpM2Fm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-full bg-white border border-gray-300 shadow-md hover:border-pink-500 transition duration-300 w-12 h-12 flex items-center justify-center hover:scale-105"
+            >
+              <FaSquareInstagram
+                size={28}
+                className="text-pink-600 group-hover:text-pink-700 transition duration-300"
+              />
+            </a>
+          </motion.div>
         </div>
       </div>
     </header>
