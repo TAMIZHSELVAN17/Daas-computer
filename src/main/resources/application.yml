@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: DaasComputers
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/DaasDaas?createDatabaseIfNotExist=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update  # Creates/updates tables based on entities
+    show-sql: true       # Show SQL queries in console
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true  # Prettify SQL logs
+        use_sql_comments: true  # Optional: adds comments to SQL output
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: tamild17042003@gmail.com
+    password: cnoa zybu ewyk bqkc
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+server:
+  port: 8081
